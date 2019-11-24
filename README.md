@@ -6,10 +6,20 @@ The VGG-Face CNN descriptors are computed using our  CNN implementation based on
 
 
 
-**Step 1:** Convert the original pre-trained LuaTorch weights into PyTorch VGGFace weights and save them at `models/vggface.pth`
+**Step 1:** Convert the original pre-trained LuaTorch weights into PyTorch VGGFace weights and save them at `models/vggface.pth` by running the following script:
 
 ~~~bash
 python convert_weights.py 
+~~~
+
+After this step, `models` directory should be as follows:
+
+~~~
+models/
+├── vggface.pth
+├── vgg_face_torch
+│   └── VGG_FACE.t7
+└── vgg_face_torch.tar.gz
 ~~~
 
 
@@ -17,12 +27,14 @@ python convert_weights.py
 **Step 2:** Run demo script:
 
 ~~~
-python3 demo.py
+python3 demo.py 
 ~~~
 
-Image `data/ak.png` is passed through pre-trained VGGFace and the prediction should be `2`, i.e., ??? 
+By default, image `data/rm.png` is used (use a different image using `--img=<image_file>`), and the output should be as follows:
 
-
+~~~bash
+Predicted id: Rooney_Mara (probability: 0.984787964730149)
+~~~
 
 
 
