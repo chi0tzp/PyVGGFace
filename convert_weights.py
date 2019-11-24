@@ -1,4 +1,3 @@
-import sys
 import os.path as osp
 import torch
 import torchfile

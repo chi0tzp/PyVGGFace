@@ -38,23 +38,7 @@ Predicted id: Rooney_Mara (probability: 0.984787964730149)
 
 
 
-In general, a VGGFace model can be build and loaded with pre-trained weights as follows:
-
-~~~python
-
-~~~
-
-
-
-
-
  
-
-
-
-
-
-
 
 ------
 
