@@ -2,7 +2,7 @@
 
 A [VGG-Face CNN descriptor](http://www.robots.ox.ac.uk/~vgg/software/vgg_face/) implemented in PyTorch. 
 
-The VGG-Face CNN descriptors are computed using our  CNN implementation based on the VGG-Very-Deep-16 CNN architecture as  described in [1] and are evaluated on the Labeled Faces in the Wild [2] and the YouTube Faces  [3] dataset.
+The VGG-Face CNN descriptors are computed using the authors CNN implementation based on the VGG-Very-Deep-16 CNN architecture as  described in [1] and are evaluated on the Labeled Faces in the Wild [2] and the YouTube Faces  [3] datasets. The provided models can be used for non-commercial research purposes under  [Creative Commons Attribution License](http://creativecommons.org/licenses/by-nc/4.0/). 
 
 
 
@@ -37,8 +37,6 @@ Predicted id: Rooney_Mara (probability: 0.984787964730149)
 ~~~
 
 
-
- 
 
 ------
 
