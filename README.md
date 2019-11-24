@@ -20,6 +20,20 @@ python convert_weights.py
 python3 demo.py
 ~~~
 
+Image `data/ak.png` is passed through pre-trained VGGFace and the prediction should be `2`, i.e., ??? 
+
+
+
+
+
+In general, a VGGFace model can be build and loaded with pre-trained weights as follows:
+
+~~~python
+
+~~~
+
+
+
 
 
  

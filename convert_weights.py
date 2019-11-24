@@ -1,3 +1,4 @@
+import sys
 import os.path as osp
 import torch
 import torchfile
@@ -35,7 +36,7 @@ def convert(torch_weights_file='models/vgg_face_torch/VGG_FACE.t7', model=None):
     for i, layer in enumerate(torch_model.modules):
         if layer.weight is not None:
             if block <= 5:
-                self_layer = getattr(model.features, "conv_{}_{}".format(block, counter))
+                self_layer = model.features['conv_{}_{}'.format(block, counter)]
                 counter += 1
                 if counter > block_size[block - 1]:
                     counter = 1
@@ -43,7 +44,7 @@ def convert(torch_weights_file='models/vgg_face_torch/VGG_FACE.t7', model=None):
                 self_layer.weight.data[...] = torch.tensor(layer.weight).view_as(self_layer.weight)[...]
                 self_layer.bias.data[...] = torch.tensor(layer.bias).view_as(self_layer.bias)[...]
             else:
-                self_layer = getattr(model.fc, "fc%d" % block)
+                self_layer = model.fc['fc{}'.format(block)]
                 block += 1
                 self_layer.weight.data[...] = torch.tensor(layer.weight).view_as(self_layer.weight)[...]
                 self_layer.bias.data[...] = torch.tensor(layer.bias).view_as(self_layer.bias)[...]
