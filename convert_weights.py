@@ -1,3 +1,4 @@
+import os
 import os.path as osp
 import torch
 import torchfile
@@ -6,9 +7,9 @@ import urllib.request
 from lib import VGGFace
 
 
-def download_torch_weights():
-    torch_tar_file = 'models/vgg_face_torch.tar.gz'
-    torch_weights_file = 'models/vgg_face_torch/VGG_FACE.t7'
+def download_torch_weights(output_dir):
+    torch_tar_file = osp.join(output_dir, 'vgg_face_torch.tar.gz')
+    torch_weights_file = osp.join(output_dir, 'vgg_face_torch/VGG_FACE.t7')
 
     # Download tar.gz file
     if not osp.isfile(torch_tar_file):
@@ -17,11 +18,11 @@ def download_torch_weights():
     # Extract 'vgg_face_torch/VGG_FACE.t7' tar.gz file into 'models/vgg_face_torch/VGG_FACE.t7'
     if not osp.isfile(torch_weights_file):
         tar_file = tarfile.open(torch_tar_file)
-        tar_file.extract(member='vgg_face_torch/VGG_FACE.t7', path='models/')
+        tar_file.extract(member='vgg_face_torch/VGG_FACE.t7', path=output_dir)
     return torch_weights_file
 
 
-def convert(torch_weights_file='models/vgg_face_torch/VGG_FACE.t7', model=None):
+def convert(torch_weights_file, model):
     """ Convert LuaTorch weights and load them to PyTorch model
 
     Args:
@@ -51,14 +52,21 @@ def convert(torch_weights_file='models/vgg_face_torch/VGG_FACE.t7', model=None):
 
 
 if __name__ == '__main__':
+    # Create output directory
+    output_dir = 'models'
+    if not os.path.exists(output_dir):
+        os.makedirs(output_dir)
+
     print("#. Download and extract original pre-trained LuaTorch tar.gz weights file...")
-    torch_weights_file = download_torch_weights()
+    torch_weights_file = download_torch_weights(output_dir)
 
     # Define VGGFace instance
     print("#. Convert original pre-trained LuaTorch and load them to VGGFace model...")
     vggface_model = VGGFace()
-    vggface_model = convert(torch_weights_file=torch_weights_file, model=vggface_model)
+    vggface_model = convert(torch_weights_file=osp.join(output_dir, 'vgg_face_torch/VGG_FACE.t7'),
+                            model=vggface_model)
 
-    vggface_model_file = 'models/vggface.pth'
+    # Save output model
+    vggface_model_file = osp.join(output_dir, 'vggface.pth')
     print("#. Save VGGFace weights at {}".format(vggface_model_file))
     torch.save(vggface_model.state_dict(), vggface_model_file)
