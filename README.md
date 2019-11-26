@@ -4,12 +4,19 @@ A [VGG-Face CNN descriptor](http://www.robots.ox.ac.uk/~vgg/software/vgg_face/) 
 
 The VGG-Face CNN descriptors are computed using the authors CNN implementation based on the VGG-Very-Deep-16 CNN architecture as  described in [1] and are evaluated on the Labeled Faces in the Wild [2] and the YouTube Faces  [3] datasets. The provided models can be used for non-commercial research purposes under  [Creative Commons Attribution License](http://creativecommons.org/licenses/by-nc/4.0/). 
 
+**Prerequisites**
+
+- pytorch (>=1.0) 
+- torchfile
+- urllib3
+- opencv (python)
+
 
 
 **Step 1:** Convert the original pre-trained LuaTorch weights into PyTorch VGGFace weights and save them at `models/vggface.pth` by running the following script:
 
 ~~~bash
-python convert_weights.py 
+python3 convert_weights.py 
 ~~~
 
 After this step, `models` directory should be as follows:
