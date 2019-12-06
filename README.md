@@ -45,6 +45,22 @@ Predicted id: Rooney_Mara (probability: 0.984787964730149)
 
 
 
+**Get VGGFace sub-model**
+
+Use the following script for getting a sub-model of VGGFace, e.g., only the convolutional sub-network, and/or rename its layers:
+
+~~~
+python3 get_submodel.py -h
+usage: Get (sub)model of VGGFace model [-h] [--model MODEL] [--output OUTPUT]
+
+optional arguments:
+  -h, --help       show this help message and exit
+  --model MODEL    input VGGFace model file
+  --output OUTPUT  output VGGFace (sub)model file
+~~~
+
+
+
 ------
 
 **References**
