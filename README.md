@@ -43,6 +43,8 @@ By default, image `data/rm.png` is used (use a different image using `--img=<ima
 Predicted id: Rooney_Mara (probability: 0.984787964730149)
 ~~~
 
+![Rooney Mara](data/rm.jpg)
+
 
 
 **Get VGGFace sub-model**
