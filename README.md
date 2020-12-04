@@ -4,12 +4,16 @@ A [VGG-Face CNN descriptor](http://www.robots.ox.ac.uk/~vgg/software/vgg_face/) 
 
 The VGG-Face CNN descriptors are computed using [1] authors' CNN implementation, based on the VGG-Very-Deep-16 CNN architecture (see [1]), and are evaluated on the Labeled Faces in the Wild [2] and the YouTube Faces  [3] datasets. The provided models can be used for non-commercial research purposes under  [Creative Commons Attribution License](http://creativecommons.org/licenses/by-nc/4.0/). 
 
-**Prerequisites**
 
-- pytorch (>=1.0) 
-- torchfile
-- urllib3
-- opencv (python)
+
+**Step 0**: Setup virtual environment, as follows:
+
+~~~
+python3 -m venv venv
+source venv/bin/activate
+pip install --upgrade pip
+pip install -r requirements.txt
+~~~
 
 
 
