@@ -6,13 +6,14 @@ The VGG-Face CNN descriptors are computed using [1] authors' CNN implementation,
 
 
 
-**Step 0**: Setup virtual environment, as follows:
+**Step 0**: Setup and activate a virtual environment (Python 3.3+), as follows:
 
-~~~
-python3 -m venv venv
-source venv/bin/activate
-pip install --upgrade pip
-pip install -r requirements.txt
+~~~bash
+$ python3 -m venv venv
+$ source venv/bin/activate
+$ pip install --upgrade pip
+$ pip install -r requirements.txt
+$ source venv/bin/activate
 ~~~
 
 
@@ -20,7 +21,7 @@ pip install -r requirements.txt
 **Step 1:** Convert the original pre-trained LuaTorch weights into PyTorch VGGFace weights and save them at `models/vggface.pth` by running the following script:
 
 ~~~bash
-python3 convert_weights.py 
+$ python3 convert_weights.py 
 ~~~
 
 After this step, `models` directory should be as follows:
@@ -37,8 +38,8 @@ models/
 
 **Step 2:** Run demo script:
 
-~~~
-python3 demo.py 
+~~~bash
+$ python3 demo.py 
 ~~~
 
 By default, image `data/rm.png` is used (use a different image using `--img=<image_file>`) -- the output should be as follows:
@@ -55,8 +56,8 @@ Predicted id: Rooney_Mara (probability: 0.984787964730149)
 
 Use the following script for getting a sub-model of VGGFace, e.g., only the convolutional sub-network, and/or rename its layers:
 
-~~~
-python3 get_submodel.py -h
+~~~bash
+$ python3 get_submodel.py -h
 usage: Get (sub)model of VGGFace model [-h] [--model MODEL] [--output OUTPUT]
 
 optional arguments:
